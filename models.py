@@ -42,3 +42,42 @@ class Category: # Represents a Product Category or a Service Category
 
     def __str__(self) -> str:
             return f"{self.category_id}. {self.category_name} "
+    
+class Product: # Represents a product
+    def __init__(self, product_id: int, prod_name: str, prod_brand: str, purchase_year: int, usage_years: int , prod_photo: str , category: Category , user: User, is_available: bool = True):
+        self.product_id = product_id
+        self.prod_name = prod_name
+        self.prod_brand = prod_brand
+        self.purchase_year = purchase_year
+        self.usage_years = usage_years
+        self.prod_photo = prod_photo
+        self.category = category 
+        self.user = user       
+        self.is_available = is_available
+
+    def check_availability(self) -> bool:
+        # TODO: επιστρέψτε True αν είναι διαθέσιμο το προϊόν
+        return self.is_available >= 1 
+
+
+    def __str__(self) -> str: # String representation of the class product
+        return (f"Όνομα: {self.prod_name}, Μάρκα: {self.prod_brand}, Έτος αγορας: {self.purchase_year}, Χρόνια χρήσης: {self.usage_years}")
+   
+class Service: # Represents a service
+    def __init__(self, service_id: int, service_name: str, service_description: str, available_time: str,  category: Category , provider: Provider, is_available: bool = True):
+        self.service_id = service_id
+        self.service_name = service_name
+        self.service_description = service_description
+        self.available_time = available_time
+        self.category = category
+        self.provider = provider
+        self.is_available = is_available    
+    
+    
+    def check_availability(self) -> bool:
+        # TODO: επιστρέψτε True αν είναι διαθέσιμη η υπηρεσία
+        return self.is_available 
+    
+    
+    def __str__(self) -> str:
+        return f" Όνομα: {self.service_name}, Περιγραφή: {self.service_description}, Διαθέσιμος Χρόνος: {self.available_time}"
