@@ -29,3 +29,15 @@ def login1() -> tuple:
         else:
             print("Λάθος στοιχεία χρήστη.\n")
             return False, None, None
+        
+    elif role_input == "2":
+        # Έλεγχος στη λίστα PROVIDERS
+        if username in PROVIDERS and PROVIDERS[username] == password:
+            print(f"Επιτυχής σύνδεση ως Πάροχος ({username}).\n")
+            return True, "provider", username
+        else:
+            print("Λάθος στοιχεία παρόχου.\n")
+            return False, None, None
+    else:
+        print("Μη έγκυρη επιλογή ρόλου.")
+        return False, None, None
