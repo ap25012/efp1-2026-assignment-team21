@@ -16,3 +16,15 @@ class DonationSystem:
         self._next_product_id = 1 # Internal counter for product IDs
         self._next_service_id = 1 # Internal counter for service IDs
         self._seed_demo_data()
+
+    def _seed_demo_data(self) -> None:
+        """Δημιουργούμε 3 κατηγορίες για τις δοκιμές των προϊόντων."""
+        # Προϊόντα
+        self.add_category("Οικιακή Συσκευή", "product")
+        self.add_category("Ρούχο", "product")
+        self.add_category("Έπιπλο", "product")
+        
+        """Δημιουργούμε 2 κατηγορίες για τις δοκιμές των υπηρεσιών."""
+        # Υπηρεσίες
+        self.add_category("Τεχνική Εργασία", "service")
+        self.add_category("Ιατρική Βοήθεια", "service")      
