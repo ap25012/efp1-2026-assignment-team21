@@ -14,5 +14,5 @@ class DonationSystem:
         self._next_provider_id = 1 # Internal counter for provider IDs
         self._next_category_id = 1 # Internal counter for category IDs
         self._next_product_id = 1 # Internal counter for product IDs
-        self._next_service_id = 1 # Internal counter for service 
+        self._next_service_id = 1 # Internal counter for service IDs
         self._seed_demo_data()
