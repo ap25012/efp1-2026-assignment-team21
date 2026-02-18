@@ -27,4 +27,40 @@ class DonationSystem:
         """Δημιουργούμε 2 κατηγορίες για τις δοκιμές των υπηρεσιών."""
         # Υπηρεσίες
         self.add_category("Τεχνική Εργασία", "service")
-        self.add_category("Ιατρική Βοήθεια", "service")      
+        self.add_category("Ιατρική Βοήθεια", "service") 
+            
+ # ---Categories ---
+
+
+    def add_category(self,category_name: str, category_type: str) -> Category:
+        category = Category(self._next_category_id, category_name, category_type)
+        self.categories.append(category) # Add category to the list
+        self._next_category_id += 1 # Increment category ID for next category (if it becomes necessary)
+        return category
+
+    def list_categories(self) -> list[Category]:
+        return self.categories # Return the list of categories
+    
+    def get_product_categories(self) -> list[Category]:
+        """Επιστρέφει μόνο τις κατηγορίες προϊόντων."""
+        results = []  # Create empty list
+        for c in self.categories:
+            if c.category_type == "product": 
+                results.append(c)  # Add it to the list
+        return results
+           
+          
+    def get_service_categories(self) -> list[Category]:
+        """Επιστρέφει μόνο τις κατηγορίες υπηρεσιών."""
+        results = []  # Create empty list
+        for c in self.categories:
+            if c.category_type == "service": 
+                results.append(c)  # Add it to the list
+        return results
+        
+
+    def find_category_by_id(self, category_id: int) -> Category | None:
+        for c in self.categories:
+            if c.category_id == category_id: # category found
+                return c # Return the category
+        return None # No match found 
