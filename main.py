@@ -38,3 +38,29 @@ def main():
     elif role == "provider":
         current_provider = system.create_provider_session(username, full_name, phone, email, afm)
         print(f"\n Είσοδος Επιτυχής! Καλωσήρθες Πάροχε {current_provider.full_name}.")
+
+         # --- MAIN APPLICATION ---
+
+    while True:
+        
+        # UI: Display different options based on the active role
+        if role == "user":
+            print(f"\n--- ΜΕΝΟΥ ΔΩΡΗΤΗ (Πόντοι: {current_user.total_points}) ---")
+            print("1. Προβολή Κατηγοριών (Προϊόντων)") 
+            print("2. Νέα Δωρεά Προϊόντος")
+            print("3. Οι Δωρεές μου")
+            print("0. Έξοδος")    
+        
+        elif role == "provider":
+            print("\n--- ΜΕΝΟΥ ΠΑΡΟΧΟΥ ---")
+            print("1. Προβολή Κατηγοριών (Υπηρεσιών)") 
+            print("2. Νέα Καταχώρηση Υπηρεσίας")
+            print("3. Οι Υπηρεσίες μου")
+            print("0. Έξοδος")
+
+        choice = input("Επιλογή: ")
+
+        # --- EXIT ---
+        if choice == "0":
+            print("Αντίο!")
+            break
