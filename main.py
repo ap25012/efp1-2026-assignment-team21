@@ -1,6 +1,6 @@
 # main.py
 
-from services import DonationSystem
+from service import DonationSystem
 from login import login
 
 def main():
@@ -28,3 +28,13 @@ def main():
 
     current_user = None
     current_provider = None
+    
+    # --- SESSION CREATION ---
+    # Based on the role, we create the appropriate object in memory.
+    if role == "user":
+        current_user = system.create_user_session(username, full_name, phone, email, afm)
+        print(f"\n Είσοδος Επιτυχής! Καλωσήρθες {current_user.full_name}.")
+        
+    elif role == "provider":
+        current_provider = system.create_provider_session(username, full_name, phone, email, afm)
+        print(f"\n Είσοδος Επιτυχής! Καλωσήρθες Πάροχε {current_provider.full_name}.")
