@@ -64,3 +64,42 @@ def main():
         if choice == "0":
             print("Αντίο!")
             break
+
+ # --- VIEW CATEGORIES ---
+        elif choice == "1":
+            if role == "user":
+                print("\n--- Κατηγορίες Προϊόντων ---")
+                # Fetches only relevant Product Categories
+                for c in system.get_product_categories(): 
+                    print(c)
+            elif role == "provider":
+                print("\n--- Κατηγορίες Υπηρεσιών ---")
+                # Fetches only relevant Service Categories
+                for c in system.get_service_categories(): 
+                    print(c)
+
+        # --- NEW REGISTRATION ---
+        elif choice == "2":
+            
+            # User creates a Product
+            if role == "user":
+                print("\n--- Νέα Δωρεά Προϊόντος ---")
+                # Show valid categories first
+                for c in system.get_product_categories(): print(c)
+                
+                try:
+                    category_id = int(input("ID Κατηγορίας: "))
+                    name = input("Ονομασία: ")
+                    brand = input("Μάρκα: ")
+                    p_year = int(input("Έτος Αγοράς: "))
+                    u_years = int(input("Έτη Χρήσης: "))
+                    photo = input("Αρχείο φωτογραφίας: ")
+
+                     # Registers the product to the current user
+                    res = system.register_product(current_user, category_id, name, brand, p_year, u_years, photo)
+                    
+                    if res: 
+                        print("\n Η δωρεά ολοκληρώθηκε!")
+                  # If validation fails, the service class prints the error message.
+                except ValueError:
+                    print(" Λάθος είσοδος (δώστε αριθμούς όπου απαιτείται).")
