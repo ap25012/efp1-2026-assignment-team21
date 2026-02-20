@@ -103,3 +103,23 @@ def main():
                   # If validation fails, the service class prints the error message.
                 except ValueError:
                     print(" Λάθος είσοδος (δώστε αριθμούς όπου απαιτείται).")
+
+                         # Provider creates a Service
+            elif role == "provider":
+                print("\n--- Νέα Υπηρεσία ---")
+                # Show valid categories first
+                for c in system.get_service_categories(): print(c)
+                
+                try:
+                    category_id = int(input("ID Κατηγορίας: "))
+                    s_name = input("Τίτλος Υπηρεσίας: ")
+                    desc = input("Περιγραφή: ")
+                    time = input("Διαθέσιμος Χρόνος: ")
+                    
+                    # Registers the service to the current provider
+                    res = system.register_service(current_provider, category_id, s_name, desc, time)
+                    
+                    if res: 
+                        print("\n Η υπηρεσία καταχωρήθηκε!")
+                except ValueError:
+                    print(" Λάθος είσοδος.")
