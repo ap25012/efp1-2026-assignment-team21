@@ -123,3 +123,28 @@ def main():
                         print("\n Η υπηρεσία καταχωρήθηκε!")
                 except ValueError:
                     print(" Λάθος είσοδος.")
+
+                      # --- VIEW HISTORY ---
+        elif choice == "3":
+            
+            if role == "user":
+                print("\n--- Οι Δωρεές μου ---")
+                # Retrieve items owned by this user
+                items = system.get_user_products(current_user)
+                if not items: print("Κανένα προϊόν.")
+                else: 
+                    for i in items: print(i)
+
+            elif role == "provider":
+                print("\n--- Οι Υπηρεσίες μου ---")
+                # Retrieve services offered by this provider
+                items = system.get_provider_services(current_provider)
+                if not items: print("Καμία υπηρεσία.")
+                else: 
+                    for i in items: print(i)
+
+        else:
+            print("Μη έγκυρη επιλογή.")
+
+if __name__ == "__main__":
+    main()
