@@ -11,7 +11,7 @@ PROVIDERS = {
     "Provider": "ABC",
 }
 
-def login1() -> tuple:
+def login() -> tuple:
     
 # Θα επιστρέφει True ή False τον ρόλο και το Username
 # Role: "user" ή "provider" ή "None"
